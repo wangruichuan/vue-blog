@@ -1,0 +1,33 @@
+:root{
+  /* 主色调 */
+  --primary-color: #6b9eee;
+  --primary-color-light: #93b9f5;
+  --primary-color-dark: #427bdc;
+
+  /* 辅助色 */
+  --secondary-color: #f19c79;
+  --secondary-color-light: #f5b9a0;
+  --secondary-color-dark: #e9794a;
+
+  /* 中性色 */
+  --neutral-color-lightest: #ffffff;
+  --neutral-color-lighter: #f8f9fa;
+  --neutral-color-light: #e9ecef;
+  --neutral-color: #adb5bd;
+  --neutral-color-dark: #495057;
+  --neutral-color-darker: #212529;
+  --neutral-color-darkest: #000000;
+
+  /* 成功、警告、错误颜色 */
+  --success-color: #28a745;
+  --warning-color: #ffc107;
+  --error-color: #dc3545;
+
+  /* 文本颜色 */
+  --text-color: var(--neutral-color-darker);
+  --text-color-light: var(--neutral-color);
+}
+
+a:hover{
+  color: var(--primary-color) ;
+}
