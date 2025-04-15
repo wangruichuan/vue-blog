@@ -18,6 +18,10 @@ const router = createRouter({
       path: '/article',
       name: 'Blog',
       component: () => import('@/views/Blog/index.vue'),
+      children:[{
+        path: ':id',
+        component: () => import('@/views/Blog/index.vue'),
+      }]
     },
     {
       path: '/project',
