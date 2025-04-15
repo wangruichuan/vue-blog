@@ -1,6 +1,5 @@
 <template>
   <i class="iconfont" v-html="iconUnicode"></i>
-
 </template>
 
 <script setup lang="ts">
@@ -10,7 +9,7 @@ interface Props {
 }
 
 const { type } = defineProps<Props>()
-const typeMap = {
+const typeMap :{[key: string]: string} = {
   "home": "&#xe611;", // 主页、首页
   "arrowup": "&#xe606;", // 向上、到顶部
   "arrowdown": "&#xe608;", // 向下、到底部
@@ -61,3 +60,4 @@ const iconUnicode = computed(() => typeMap[type])
   -moz-osx-font-smoothing: grayscale;
 }
 </style>
+

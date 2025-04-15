@@ -11,10 +11,10 @@
 <script setup lang="ts">
 import { computed } from "vue";
 interface Props {
-  current: number; // 当前页码
-  total: number; // 总条数
-  limit: number; // 每页条数
-  visibleNumber: number; // 可见的页码数量
+  current?: number; // 当前页码
+  total?: number; // 总条数
+  limit?: number; // 每页条数
+  visibleNumber?: number; // 可见的页码数量
 }
 
 const { current = 1, total = 0, limit = 10, visibleNumber = 10 } = defineProps<Props>()
@@ -59,8 +59,8 @@ const handleClick = (newPage: number) => {
   if(newPage>pageNumber.value) {
     newPage=pageNumber.value
   }
-  if (newPage === current.value) {
-    return 
+  if (newPage === current) {
+    return
   }
   emit("pageChange", newPage)
 }
