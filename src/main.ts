@@ -9,9 +9,11 @@ import router from './router'
 // 测试专用
 // import test  from '@/components/Empty/test.vue'
 // import test  from '@/components/ImageLoader/test.vue'
-import test  from '@/components/Contact/test.vue'
+// import test  from '@/components/SiteAside/test.vue'
+// import test  from '@/components/Layout/test.vue'
 
-const app = createApp(test)
+
+const app = createApp(App)
 
 
 // const app = createApp(App)

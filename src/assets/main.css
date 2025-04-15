@@ -1,4 +1,4 @@
-:root{
+:root {
   /* 主色调 */
   --primary-color: #6b9eee;
   --primary-color-light: #93b9f5;
@@ -26,8 +26,10 @@
   /* 文本颜色 */
   --text-color: var(--neutral-color-darker);
   --text-color-light: var(--neutral-color);
+
+  --aside-back-color: #1f1f1f;
 }
 
-a:hover{
-  color: var(--primary-color) ;
+a:hover {
+  color: var(--primary-color);
 }

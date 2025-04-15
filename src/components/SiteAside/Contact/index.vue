@@ -5,7 +5,7 @@
         <div class="icon">
           <Icon type="github" />
         </div>
-        <span>wangruichuan</span>
+        <span>github.com/wangruichuan</span>
         <div class="pop">
         <img src="https://s21.ax1x.com/2025/04/15/pEfQBqg.png" alt="">
       </div>
@@ -24,7 +24,7 @@
         <div class="icon">
           <Icon type="qq" />
         </div>
-        <span>13831052787</span>
+        <span>1668970665</span>
       </a>
     </li>
     <li>
@@ -47,7 +47,8 @@ import Icon from '@/components/Icon/index.vue'
 .contact-container {
   padding: 20px;
   color: var(--neutral-color-dark);
-  --item-height: 30px
+  --item-height: 30px;
+  font-size: 14px;
 }
 
 li {

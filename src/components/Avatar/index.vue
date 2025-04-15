@@ -1,5 +1,5 @@
 <template>
-  <img :src="url" alt="" :style="{
+  <img class="avatar-container" :src="url" alt="" :style="{
     width: size + 'px',
     height: size + 'px'
   }">
