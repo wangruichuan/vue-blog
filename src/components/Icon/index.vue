@@ -1,5 +1,5 @@
 <template>
-  <i class="iconfont" v-html="iconUnicode"></i>
+  <i class="iconfont icon-container" v-html="iconUnicode"></i>
 </template>
 
 <script setup lang="ts">
@@ -9,7 +9,7 @@ interface Props {
 }
 
 const { type } = defineProps<Props>()
-const typeMap :{[key: string]: string} = {
+const typeMap: { [key: string]: string } = {
   "home": "&#xe611;", // 主页、首页
   "arrowup": "&#xe606;", // 向上、到顶部
   "arrowdown": "&#xe608;", // 向下、到底部
@@ -36,7 +36,14 @@ const typeMap :{[key: string]: string} = {
   "nav_search": "&#xe61e;", // 搜索
   "repeat": "&#xe61f;", // 随机排序
   "folder": "&#xe620;", // 文件夹、目录
-  "menu21": "&#xe622;" // 导航、更多
+  "menu21": "&#xe622;", // 导航、更多
+  "empty": "&#xe623;" ,// Empty
+  "github": "&#xe885;", // GitHub
+  "qq": "&#xe882;", // GitHub
+  "weixin": "&#xe600;", // GitHub
+  "phone": "&#xe624;", // GitHub
+  "email": "&#xe856;" // GitHub
+
 };
 const iconUnicode = computed(() => typeMap[type])
 
@@ -44,15 +51,16 @@ const iconUnicode = computed(() => typeMap[type])
 </script>
 
 <style scoped>
+
 @font-face {
-  font-family: 'iconfont';
-  /* Project id 4892934 */
-  src: url('//at.alicdn.com/t/c/font_4892934_s8epswn812f.woff2?t=1744648686552') format('woff2'),
-    url('//at.alicdn.com/t/c/font_4892934_s8epswn812f.woff?t=1744648686552') format('woff'),
-    url('//at.alicdn.com/t/c/font_4892934_s8epswn812f.ttf?t=1744648686552') format('truetype');
+  font-family: 'iconfont';  /* Project id 4892934 */
+  src: url('//at.alicdn.com/t/c/font_4892934_5pxswx1muzq.woff2?t=1744689810955') format('woff2'),
+       url('//at.alicdn.com/t/c/font_4892934_5pxswx1muzq.woff?t=1744689810955') format('woff'),
+       url('//at.alicdn.com/t/c/font_4892934_5pxswx1muzq.ttf?t=1744689810955') format('truetype');
 }
 
 .iconfont {
+  font-size: inherit;
   font-family: "iconfont" !important;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
@@ -60,4 +68,3 @@ const iconUnicode = computed(() => typeMap[type])
   -moz-osx-font-smoothing: grayscale;
 }
 </style>
-

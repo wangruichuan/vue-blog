@@ -7,10 +7,14 @@ import App from './App.vue'
 import router from './router'
 
 // 测试专用
-// import test  from '@/components/Pager/test.vue'
-// const app = createApp(test)
+// import test  from '@/components/Empty/test.vue'
+// import test  from '@/components/ImageLoader/test.vue'
+import test  from '@/components/Contact/test.vue'
 
-const app = createApp(App)
+const app = createApp(test)
+
+
+// const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)
