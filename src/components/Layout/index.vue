@@ -13,7 +13,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 
 </script>
 
@@ -22,6 +21,7 @@ import { ref } from 'vue'
   width: 100%;
   height: 100%;
   display: flex;
+  position: absolute;
 }
 .layout-left,
 .layout-right,

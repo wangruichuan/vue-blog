@@ -18,13 +18,11 @@ const iconUnicode = computed(() => typeMap[type])
 
 <style scoped>
 @font-face {
-  font-family: 'iconfont';
-  /* Project id 4892934 */
-  src: url('//at.alicdn.com/t/c/font_4892934_ywqonhfzxap.woff2?t=1744709039260') format('woff2'),
-    url('//at.alicdn.com/t/c/font_4892934_ywqonhfzxap.woff?t=1744709039260') format('woff'),
-    url('//at.alicdn.com/t/c/font_4892934_ywqonhfzxap.ttf?t=1744709039260') format('truetype');
+  font-family: 'iconfont';  /* Project id 4892934 */
+  src: url('//at.alicdn.com/t/c/font_4892934_8d48v7ieivd.woff2?t=1744792049101') format('woff2'),
+       url('//at.alicdn.com/t/c/font_4892934_8d48v7ieivd.woff?t=1744792049101') format('woff'),
+       url('//at.alicdn.com/t/c/font_4892934_8d48v7ieivd.ttf?t=1744792049101') format('truetype');
 }
-
 .iconfont {
   font-size: inherit;
   font-family: "iconfont" !important;
