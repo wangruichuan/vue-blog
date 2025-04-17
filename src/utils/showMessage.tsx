@@ -11,10 +11,13 @@ const colorMap = {
 }
 
 export type ShowMessageFunction = (
-  content: string,
-  type?: MessageType,
-  duration?: number,
-  container?: HTMLElement,
+  options: {
+    content: string
+    type?: MessageType
+    duration?: number
+    container?: HTMLElement
+  },
+  callback?: () => void,
 ) => void
 /**
  * 弹出消息
@@ -24,13 +27,11 @@ export type ShowMessageFunction = (
  * @param container 容器，消息会显示到该容器的正中，如果不传，显示到页面正中
  */
 const showMessage: ShowMessageFunction = (
-  content,
-  type = 'success',
-  duration = 2000,
-  container,
+  { content, type = 'info', duration = 2000, container },
+  callback,
 ) => {
   const DivModal = styled('div', {
-    position: 'fixed',
+    position: 'absolute',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
@@ -39,14 +40,13 @@ const showMessage: ShowMessageFunction = (
     maxWidth: '80%',
     padding: '10px',
     borderRadius: '4px',
-    backgroundColor: '#fff',
-    border: `1px solid ${colorMap[type]}`,
+    backgroundColor: `${colorMap[type]}`,
     boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)',
     maxHeight: '50%',
     overflow: 'hidden',
     fontSize: '15px',
     display: 'flex',
-    color: `${colorMap[type]}`,
+    color: `white`,
     alignItems: 'center',
     '& p': {
       marginLeft: '10px',
@@ -86,10 +86,14 @@ const showMessage: ShowMessageFunction = (
 
   setTimeout(() => {
     div.style.opacity = '0'
-    setTimeout(() => {
+    div.addEventListener('transitionend', () => {
       app.unmount()
       div.remove()
-    }, 300)
+      // 运行回调
+      if(callback) {
+        callback()
+      }
+    })
   }, duration)
 }
 

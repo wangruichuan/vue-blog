@@ -20,16 +20,17 @@
 import Layout from '@/components/Layout/index.vue'
 import SiteAside from '@/components/SiteAside/index.vue'
 
-
 </script>
 
 <style scoped>
 .app-container{
   width: 100%;
   height: 100%;
+  position: absolute;
 }
 .aside{
   width: 250px;
+  height: 100%;
 
 }
 </style>

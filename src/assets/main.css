@@ -27,7 +27,8 @@
   --text-color: var(--neutral-color-darker);
   --text-color-light: var(--neutral-color);
 
-  --aside-back-color: #1f1f1f;
+  --aside-back-color: #141928;
+
 }
 
 a:hover {

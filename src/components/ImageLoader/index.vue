@@ -1,7 +1,7 @@
 <template>
   <div class="image-loader-container">
     <img v-if="!everythingDone" :src="placeholder" alt="" class="placeholder">
-    <img @load="handerLoad" :style="{ opacity: originOpacity, transition: `${duration}ms` }" :src="src" alt=""
+    <img draggable="false" @load="handerLoad" :style="{ opacity: originOpacity, transition: `${duration}ms` }" :src="src" alt=""
       class="origin">
 
   </div>

@@ -2,7 +2,7 @@
   <div class="site-aside-container">
 
     <div class="avatar-container">
-      <Avatar style="border-radius: 50%;" url="https://pic1.imgdb.cn/item/67fdc5ec88c538a9b5d13920.webp"></Avatar>
+      <Avatar style="border-radius: 50%;" url="https://pic1.imgdb.cn/item/68015fb988c538a9b5d90760.png"></Avatar>
 
     </div>
     <h1>wangruichuan</h1>
@@ -25,6 +25,7 @@ import Contact from './Contact/index.vue'
   padding: 20px 0;
   overflow-y: auto;
   overflow-x: hidden;
+
 }
 
 .avatar-container {
@@ -37,5 +38,6 @@ h1 {
   margin-top: 10px;
   color: white;
   margin-bottom: -10px;
+  backdrop-filter: blur(4px);
 }
 </style>

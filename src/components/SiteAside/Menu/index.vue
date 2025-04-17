@@ -66,12 +66,18 @@ const items = ref ([
   color: white;
   cursor: pointer;
 }
+a{
+  transition: all 1.5s;
+}
 a .icon{
   width: 24px;
 
+
 }
 .router-link-active{
-  background-color: #2d2d2d;
+  background-color: #06080c;
+
+
 }
 
 </style>
