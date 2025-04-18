@@ -15,10 +15,8 @@
 
 <script setup lang="ts">
 // 定义 data 数组中元素的类型
-
-
+import type { Banner } from '@/types/response'
 import ImageLoader from '@/components/ImageLoader/index.vue'
-import type { Banner } from './index.vue'
 import { computed, onMounted, onUnmounted } from 'vue';
 interface Props {
   carousel: Banner

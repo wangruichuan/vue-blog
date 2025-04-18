@@ -1,5 +1,5 @@
 <template>
-  <div class="home-container" @wheel="handleWheel">
+  <div v-loading="isLoading" class="home-container" @wheel="handleWheel">
     <ul class="carousel-container" ref="container">
       <li v-for="item in banners" :key="item.id" :style="{
         transform: `translateY(${marginTop})`,
@@ -24,19 +24,14 @@
 </template>
 
 <script setup lang="ts">
-import axios from '@/api/request.ts'
+import type { Banner } from '@/types/response'
 import CarouselItem from './CarouselItem.vue';
-import Icon from '@/components/Icon/index.vue'
+import Icon from '@/components/Icon/index.vue';
+import { useFetch } from '@/composables/useFetch';
 import { computed, onMounted, onUnmounted, ref, useTemplateRef } from 'vue';
 
-export interface Banner {
-    id: number;
-    midImg: string;
-    bigImg: string;
-    title: string;
-    description: string;
-}
-const banners = ref<Banner[]>([])
+// 获取数据
+const { isLoading,data:banners } = useFetch<Banner[]>('/banners')
 
 const index = ref(0); //当前显示的是第几张轮播图
 const containerHeight = ref(0) //整个容器的高度
@@ -61,7 +56,6 @@ const carouselItemRef = useTemplateRef<CarouselItemType[]>('carouselItemRef')
 //切换轮播图
 function switchTo(i: number) {
   index.value = i;
-
 }
 function handleWheel(e: WheelEvent) {
   if (switching.value) {
@@ -88,12 +82,8 @@ function handleResize() {
     containerHeight.value = container.value.clientHeight;
   }
 }
-// 发送请求获取banner数据
-(async () =>{
-  const res  = await axios.get<Banner[]>('/banners');
-  banners.value = res.data
-  console.table(banners.value)
-})();
+
+
 </script>
 
 <style scoped>

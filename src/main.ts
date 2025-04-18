@@ -3,7 +3,7 @@ import 'virtual:uno.css'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import { defineComponent } from 'vue'
-
+import vLoading from '@/directives/loading'
 import App from './App.vue'
 import router from './router'
 
@@ -14,6 +14,7 @@ import router from './router'
 // import test  from '@/components/SiteAside/test.vue'
 // import test  from '@/components/Layout/test.vue'
 const app = createApp(App)
+app.directive('loading',vLoading)
 app.use(createPinia())
 app.use(router)
 app.mount('#app')

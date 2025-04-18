@@ -7,8 +7,10 @@
         </div>
         <span>github.com/wangruichuan</span>
         <div class="pop">
-        <img src="https://s21.ax1x.com/2025/04/15/pEfQBqg.png" alt="">
-      </div>
+          <img
+            src="https://wangruichuan-1321190606.cos.ap-beijing.myqcloud.com/blog/qrcode_github.com%20%282%29.png?q-sign-algorithm=sha1&q-ak=AKIDbTe1GvY5zbdbMMVvl8NLEnflnSmikIkbp-Vhtplca-pdUQ2dPTW7k7zovmdbvay3&q-sign-time=1744973101;1744976701&q-key-time=1744973101;1744976701&q-header-list=host&q-url-param-list=ci-process&q-signature=d0a5b34e8407ccfdcb350f79de8c064ccfc3c19e&x-cos-security-token=Ua5N87Dx6WM7c3nzaul9Uc1IszTMKd7a73e0a5ac762bce7e20f9339125710cb0YZfeA6s86vo1i7aVTX7B3qIveey12zywwy-39ZpiOdc6CHYbQBNzLlAj1OTt0-j_-jjzhl32qd9f5Oc6N4DeToKO4BKs7UNcUHIKFSn3r9JZM8-40EU1Biv-Tz3IHrSzMBIbR-Yjw2Iar5tEaMeKyeMuVzgqWE3f5nbAExVBtt5crXP48--xitkXFnHj9ZZ7r9_4OQlYiIfC_bKc7utQe1xRNc4T68G_Nch3OZRISbzIImpjtPx0PdiZJYZwlMYggVGDjP8QPgTlAdXTLkmAQw&ci-process=originImage"
+            alt="">
+        </div>
       </a>
     </li>
     <li>
@@ -16,7 +18,7 @@
         <div class="icon">
           <Icon type="email" />
         </div>
-        <span>1668970665@qq.com</span>
+        <span>wangruichuan666@qq.com</span>
       </a>
     </li>
     <li>
