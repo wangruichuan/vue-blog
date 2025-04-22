@@ -59,7 +59,7 @@ const emit = defineEmits<{
       nickname: string
       content: string
     },
-    callback: () => void,
+    callback: (content:string) => void,
   ]
 }>()
 
@@ -72,10 +72,10 @@ function handleSubmit() {
     return
   }
   isSubmiting.value = true // 正在提交，防止重复点击
-  emit('submit', formData, () => {
+  emit('submit', formData, (content:string) => {
     showMessage(
       {
-        content: '评论成功',
+        content: content || '提交成功',
         type: 'success',
         container: form.value!,
       },

@@ -37,13 +37,13 @@ const emit = defineEmits<{
       nickname: string
       content: string
     },
-    callback: () => void,
+    callback: (content:string) => void,
   ]
 }>()
 
 function handleSubmit(
   formData: { nickname: string; content: string },
-  callback: () => void,
+  callback: (content:string) => void,
 ) {
   emit('submit', formData,callback)
 }

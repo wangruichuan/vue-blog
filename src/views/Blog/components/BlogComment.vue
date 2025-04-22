@@ -71,7 +71,7 @@ onUnmounted(() => {
 
 async function handleSubmit(
   formData: { nickname: string; content: string },
-  callback: () => void,
+  callback: (content:string) => void,
 ) {
   // 提交评论
   const { data: newComment } = await postComment({
@@ -82,7 +82,7 @@ async function handleSubmit(
   // 添加新的评论
   data.value.rows.unshift(newComment)
   data.value.total++
-  callback()
+  callback("评论成功")
 }
 </script>
 

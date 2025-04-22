@@ -64,3 +64,18 @@ export interface ResponseData<T> {
   data: T
   msg: string
 }
+
+// 单个评论
+export type Message = {
+  id: string;
+  nickname: string;
+  content: string;
+  createDate: string;
+  avatar: string;
+};
+
+// 定义包含所有数据的对象的类型
+export type DataObject<T> = {
+  total: number;
+  rows: T[];
+};

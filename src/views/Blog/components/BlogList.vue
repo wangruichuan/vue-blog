@@ -1,36 +1,57 @@
 <template>
-  <div class="blog-list-container" ref="container" v-loading="isLoading">
+  <div
+    class="blog-list-container"
+    ref="container"
+    v-loading="isLoading"
+  >
     <ul>
-      <li v-for="item in data.rows" :key="item.id">
-        <div class="thumb" v-if="item.thumb">
-          <RouterLink :to="{
-            name: 'BlogDetail',
-            params: {
-              id: item.id
-            }
-          }" >
-            <img :src="item.thumb" :alt="item.title" :title="item.title" />
+      <li
+        v-for="item in data.rows"
+        :key="item.id"
+      >
+        <div
+          class="thumb"
+          v-if="item.thumb"
+        >
+          <RouterLink
+            :to="{
+              name: 'BlogDetail',
+              params: {
+                id: item.id,
+              },
+            }"
+          >
+            <img
+              v-lazy="item.thumb"
+              :alt="item.title"
+              :title="item.title"
+            />
           </RouterLink>
         </div>
         <div class="main">
-          <RouterLink :to="{
-            name: 'BlogDetail',
-            params: {
-              id: item.id
-            }
-          }">
+          <RouterLink
+            :to="{
+              name: 'BlogDetail',
+              params: {
+                id: item.id,
+              },
+            }"
+          >
             <h2>{{ item.title }}</h2>
           </RouterLink>
           <div class="aside">
             <span>日期：{{ item.createTime }}</span>
             <span>浏览：{{ item.scanNumber }}</span>
             <span>评论：{{ item.commentNumber }}</span>
-            <RouterLink :to="{
-              name: 'BlogCate',
-              params: {
-                id: item.category.id
-              }
-            }">{{ item.category.name }}</RouterLink>
+            <RouterLink
+              :to="{
+                name: 'BlogCate',
+                params: {
+                  id: item.category.id,
+                },
+              }"
+              >{{ item.category.name }}</RouterLink
+            >
           </div>
           <div class="desc">
             {{ item.description }}
@@ -39,22 +60,23 @@
       </li>
     </ul>
     <Pager
-    :current="routeInfo.page"
-    :limit="routeInfo.limit"
-    :total="data.total"
-    :visible-number="10"
-    @page-change="handlePageChange"
-      v-if="data.total" />
+      :current="routeInfo.page"
+      :limit="routeInfo.limit"
+      :total="data.total"
+      :visible-number="10"
+      @page-change="handlePageChange"
+      v-if="data.total"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
 import Pager from '@/components/Pager/index.vue'
-import { useFetch } from '@/composables/useFetch';
+import { useFetch } from '@/composables/useFetch'
 import { getBlogs } from '@/api/blog'
-import { computed,watch,ref, onMounted,onBeforeUnmount } from 'vue';
+import { computed, watch, ref, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import emitter from '@/utils/emitter';
+import { useMainScroll } from '@/composables/useMainScroll'
 const router = useRouter()
 const route = useRoute()
 
@@ -66,70 +88,59 @@ const routeInfo = computed(() => {
   return {
     categoryId,
     page,
-    limit
+    limit,
   }
 })
 
 async function fetchBlogs() {
-  return await getBlogs(routeInfo.value.page, routeInfo.value.limit, routeInfo.value.categoryId)
+  return await getBlogs(
+    routeInfo.value.page,
+    routeInfo.value.limit,
+    routeInfo.value.categoryId,
+  )
 }
-const { data, isLoading } = useFetch(fetchBlogs);
+const { data, isLoading } = useFetch(fetchBlogs)
 
-function handlePageChange(newPage:number) {
+function handlePageChange(newPage: number) {
   // 要跳转到当前的分类id 当前的页容量 newPage的页码
-  if(routeInfo.value.categoryId === -1) {
+  if (routeInfo.value.categoryId === -1) {
     // 当前没有分类
     router.push({
       name: 'Blog',
       query: {
         page: newPage,
-        limit: routeInfo.value.limit
-      }
+        limit: routeInfo.value.limit,
+      },
     })
-  }else{
+  } else {
     router.push({
       name: 'BlogCate',
       params: {
-        id: routeInfo.value.categoryId
+        id: routeInfo.value.categoryId,
       },
       query: {
         page: newPage,
-        limit: routeInfo.value.limit
-      }
+        limit: routeInfo.value.limit,
+      },
     })
   }
 }
 const container = ref<HTMLElement>()
-watch(routeInfo,()=>{
+watch(routeInfo, () => {
   isLoading.value = true
-  fetchBlogs().then((res)=>{
+  fetchBlogs().then((res) => {
     // 滚动高度为0
-    if(container.value) {
+    if (container.value) {
       container.value.scrollTop = 0
     }
     data.value = res.data
     isLoading.value = false
   })
 })
-function handleScroll() {
-  emitter.emit('mainScroll', container.value! as HTMLElement)
-}
-function handleSetMainScroll(scrollTop:number){
-  container.value!.scrollTop = scrollTop
-}
-onMounted(()=>{
-  if(container.value) {
-    emitter.on("setMainScroll",handleSetMainScroll)
-    container.value.addEventListener('scroll', handleScroll)
-  }
-})
-onBeforeUnmount(() => {
-  emitter.emit("mainScroll")
-  if (container.value) {
-    container.value.removeEventListener('scroll', handleScroll)
-  }
-})
 
+onMounted(() => {
+  useMainScroll(container.value!)
+})
 </script>
 
 <style scoped>

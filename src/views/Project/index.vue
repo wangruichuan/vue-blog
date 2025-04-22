@@ -1,10 +1,11 @@
 <template>
-  <div>项目</div>
+  <div>
+    <Empty />
+  </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-
+import Empty from '@/components/Empty/index.vue'
 </script>
 
 <style scoped>

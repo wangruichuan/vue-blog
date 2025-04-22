@@ -16,7 +16,7 @@
 
 <script setup lang="ts">
 import Icon from '@/components/Icon/index.vue'
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
 
 const items = ref([
@@ -51,15 +51,6 @@ const items = ref([
     link: '/message',
   },
 ])
-import { useRoute, useRouter } from 'vue-router'
-
-const route = useRoute()
-watch(
-  () => route.path,
-  (newValue) => {
-    console.log('router path', newValue)
-  },
-)
 </script>
 
 <style scoped>

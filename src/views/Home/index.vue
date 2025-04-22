@@ -24,14 +24,17 @@
 </template>
 
 <script setup lang="ts">
-import type { Banner } from '@/types/response'
 import CarouselItem from './CarouselItem.vue';
 import Icon from '@/components/Icon/index.vue';
-import { useFetch } from '@/composables/useFetch';
 import { computed, onMounted, onUnmounted, ref, useTemplateRef } from 'vue';
-import { getBanners } from "@/api/banner";
-// 获取数据
-const { isLoading,data:banners } = useFetch<Banner[]>(getBanners)
+import {useBannerStore} from "@/stores/banner"
+import { storeToRefs } from 'pinia';
+
+const banner = useBannerStore()
+
+const {data:banners,isLoading} = storeToRefs(banner)
+banner.fetchBanner()
+
 
 const index = ref(0); //当前显示的是第几张轮播图
 const containerHeight = ref(0) //整个容器的高度

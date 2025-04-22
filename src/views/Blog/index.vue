@@ -13,10 +13,7 @@
 import Layout from '@/components/Layout/index.vue'
 import BlogCategory from './components/BlogCategory.vue'
 import BlogList from './components/BlogList.vue'
-
-
 </script>
-
 <style scoped>
 .blog-container{
   width: 100%;

@@ -6,7 +6,6 @@ import mitt from "mitt";
 type Events = {
   mainScroll?:HTMLElement;
   setMainScroll:number;
-
 }
 const emitter = mitt<Events>();
 export default emitter;

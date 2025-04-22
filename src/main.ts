@@ -5,6 +5,7 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import { defineComponent } from 'vue'
 import vLoading from '@/directives/loading'
+import vLazy from '@/directives/lazy'
 import App from './App.vue'
 import router from './router'
 
@@ -16,14 +17,13 @@ import router from './router'
 // import test  from '@/components/Layout/test.vue'
 // import MessageArea  from '@/components/MessageArea/index.vue'
 
-import * as blogApli from '@/api/blog'
-blogApli.getComments(1).then(res => {
-  console.log(res)
-})
+// import * as blogApli from '@/api/blog'
+
 
 
 const app = createApp(App)
 app.directive('loading',vLoading)
+app.directive('lazy',vLazy)
 app.use(createPinia())
 app.use(router)
 app.mount('#app')

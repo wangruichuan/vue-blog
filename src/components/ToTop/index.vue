@@ -9,13 +9,12 @@ import emitter from '@/utils/emitter';
 import {ref } from 'vue'
 const show = ref(false)
 
-
+// 点击事件
 function handleClick(){
   emitter.emit("setMainScroll",0)
 }
 
 function handleScroll(dom?:HTMLElement){
-  console.log('123', );
   if(!dom){
     show.value = false
     return

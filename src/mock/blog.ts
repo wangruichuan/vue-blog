@@ -38,7 +38,7 @@ Mock.mock(/^\/api\/blog(\?.+)?$/, 'get', (options: { url: string }) => {
           },
           'scanNumber|1-3000': 0,
           'commentNumber|0-300': 30,
-          thumb: Mock.Random.image('300x200', '#000', '#fff', 'png', 'Random Image'),
+          'thumb|1': ['@image(300x250, @color, #fff, @natural)', null],
           createTime: '@datetime',
         },
       ],
@@ -84,7 +84,7 @@ Mock.mock(/^\/api\/blog\/[^/]+$/, 'get', {
         anchor: 'article-md-title-7',
       },
     ],
-    'thumb|1': [Mock.Random.image('300x200', '#000', '#fff', 'png', 'Random Image'), null],
+    'thumb|1': ['@image(300*250,@color,#fff,@natural', null],
     htmlContent: `<blockquote>
   <p>阅读本文，你需要首先知道：</p><ol>
   <li>浏览器的同源策略</li>

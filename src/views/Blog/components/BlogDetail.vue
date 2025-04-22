@@ -34,8 +34,6 @@ onMounted(() => {
     location.hash = hash;
   }, 500);
 })
-
-
 </script>
 
 <style scoped>

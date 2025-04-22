@@ -13,7 +13,8 @@
     "lint:oxlint": "oxlint . --fix -D correctness --ignore-path .gitignore",
     "lint:eslint": "eslint . --fix",
     "lint": "run-s lint:*",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "visualizer": "vite-bundle-visualizer"
   },
   "dependencies": {
     "@styils/vue": "^1.1.7",
@@ -52,6 +53,7 @@
     "typescript": "~5.8.0",
     "unocss": "66.1.0-beta.11",
     "vite": "^6.2.4",
+    "vite-bundle-visualizer": "^1.2.1",
     "vite-plugin-vue-devtools": "^7.7.2",
     "vitest": "^3.1.1",
     "vue-tsc": "^2.2.8"
