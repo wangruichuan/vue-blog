@@ -1,6 +1,6 @@
 :root {
   /* 主色调 */
-  --primary-color: #6b9eee;
+  --primary-color: #3e5392;
   --primary-color-light: #93b9f5;
   --primary-color-dark: #427bdc;
 
@@ -33,4 +33,8 @@
 
 a:hover {
   color: var(--primary-color);
+}
+
+*{
+  font-family: Quotes, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif
 }

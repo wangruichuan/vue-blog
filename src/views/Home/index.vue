@@ -29,9 +29,9 @@ import CarouselItem from './CarouselItem.vue';
 import Icon from '@/components/Icon/index.vue';
 import { useFetch } from '@/composables/useFetch';
 import { computed, onMounted, onUnmounted, ref, useTemplateRef } from 'vue';
-
+import { getBanners } from "@/api/banner";
 // 获取数据
-const { isLoading,data:banners } = useFetch<Banner[]>('/banners')
+const { isLoading,data:banners } = useFetch<Banner[]>(getBanners)
 
 const index = ref(0); //当前显示的是第几张轮播图
 const containerHeight = ref(0) //整个容器的高度
@@ -57,6 +57,7 @@ const carouselItemRef = useTemplateRef<CarouselItemType[]>('carouselItemRef')
 function switchTo(i: number) {
   index.value = i;
 }
+
 function handleWheel(e: WheelEvent) {
   if (switching.value) {
     return
@@ -76,6 +77,8 @@ function handleWheel(e: WheelEvent) {
   }
 
 }
+
+
 // container重新设置尺寸时
 function handleResize() {
   if (container.value) {

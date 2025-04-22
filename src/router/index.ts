@@ -1,8 +1,8 @@
-import { createRouter, createWebHashHistory  } from 'vue-router'
+import { createRouter, createWebHistory  } from 'vue-router'
 
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes: [
     {
       path: '/',
@@ -15,13 +15,19 @@ const router = createRouter({
       component: () => import('@/views/About/index.vue'),
     },
     {
-      path: '/article',
+      path: '/blog',
       name: 'Blog',
       component: () => import('@/views/Blog/index.vue'),
-      children:[{
-        path: ':id',
-        component: () => import('@/views/Blog/index.vue'),
-      }]
+    },
+    {
+      path: '/blog/cate/:id',
+      name: 'BlogCate',
+      component: () => import('@/views/Blog/index.vue'),
+    },
+    {
+      path: '/blog/:id',
+      name: 'BlogDetail',
+      component: () => import('@/views/Blog/Detail.vue'),
     },
     {
       path: '/project',
@@ -32,6 +38,16 @@ const router = createRouter({
       path: '/message',
       name: 'Message',
       component: () => import('@/views/Message/index.vue'),
+    },
+    {
+      path: '/test',
+      name: 'Test',
+      component: () => import('@/components/MessageArea/index.vue'),
+    },
+    {
+      path: '/:pathMatch(.*)',
+      name: 'NotFound',
+      component: () => import('@/views/NotFound/index.vue')
     }
   ],
 })

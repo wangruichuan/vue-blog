@@ -21,7 +21,7 @@
   width: 100%;
   height: 100%;
   display: flex;
-  position: absolute;
+
 }
 .layout-left,
 .layout-right,
@@ -36,5 +36,6 @@
 .layout-main{
   flex: 1 1 auto;
   overflow: hidden;
+  position: relative;
 }
 </style>

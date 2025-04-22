@@ -1,24 +1,25 @@
 <template>
   <div class="menu-container">
-    <RouterLink  v-for="item in items" :key="item.link"
-      :to="{name: item.name}"
+    <RouterLink
+      v-for="item in items"
+      :key="item.link"
+      :to="{ name: item.name }"
+      :class="{ active: $route.path.startsWith('/blog') && item.name === 'Blog' }"
     >
       <div class="icon">
         <Icon :type="item.icon" />
       </div>
       <span>{{ item.text }}</span>
-    </RouterLink >
+    </RouterLink>
   </div>
 </template>
 
 <script setup lang="ts">
 import Icon from '@/components/Icon/index.vue'
-import { ref } from 'vue'
-import { RouterLink } from 'vue-router';
+import { ref, watch } from 'vue'
+import { RouterLink } from 'vue-router'
 
-
-
-const items = ref ([
+const items = ref([
   {
     name: 'Home',
     icon: 'home',
@@ -48,14 +49,21 @@ const items = ref ([
     icon: 'speechbubble',
     text: '留言板',
     link: '/message',
-  }
+  },
 ])
+import { useRoute, useRouter } from 'vue-router'
 
-
+const route = useRoute()
+watch(
+  () => route.path,
+  (newValue) => {
+    console.log('router path', newValue)
+  },
+)
 </script>
 
 <style scoped>
-.menu-container{
+.menu-container {
   margin: 24px 0;
 }
 .menu-container a {
@@ -66,19 +74,17 @@ const items = ref ([
   color: white;
   cursor: pointer;
 }
-a{
+a {
   transition: all 1.5s;
 }
-a .icon{
+a .icon {
   width: 24px;
-
-
 }
-.router-link-active{
-  background-color: #06080c;
-
-
+.active {
+  background-color: #8385883c;
 }
 
+.router-link-active {
+  background-color: #8385883c;
+}
 </style>
-

@@ -2,7 +2,6 @@ import axios from 'axios';
 import showMessage from '@/utils/showMessage';
 
 const ins = axios.create({
-  baseURL: 'https://mock.mengxuegu.com/mock/6800fa6b80a48b3de1e17254/blog',
   timeout: 3000,
 })
 ins.interceptors.response.use(

@@ -2,7 +2,8 @@
   <div class="site-aside-container">
 
     <div class="avatar-container">
-      <Avatar style="border-radius: 50%;" url="https://pic1.imgdb.cn/item/68015fb988c538a9b5d90760.png"></Avatar>
+      <Avatar style="border-radius: 50%;"
+        url="https://wangruichuan-1321190606.cos.ap-beijing.myqcloud.com/blog%2F2_%E5%89%AF%E6%9C%AC.jpg"></Avatar>
 
     </div>
     <h1>wangruichuan</h1>
