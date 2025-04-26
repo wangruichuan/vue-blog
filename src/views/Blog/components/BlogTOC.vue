@@ -3,7 +3,6 @@
     <h2>目录</h2>
     <RightList
       :list="tocWithSelect"
-      @select="handleSelect"
     ></RightList>
   </div>
 </template>
@@ -11,7 +10,6 @@
 <script setup lang="ts">
 import RightList from './RightList.vue'
 import type { ArticleTocItem } from '@/types/response'
-import type { Contents } from '@/types/contents'
 import { computed, ref } from 'vue'
 import emitter from '@/utils/emitter'
 import debounce from '@/utils/debounce'
@@ -62,11 +60,6 @@ const doms = computed(() => {
 
   return doms
 })
-
-function handleSelect(item: Contents) {
-  const content = item as ArticleTocItem
-  location.hash = content.anchor
-}
 // 设置activeAnchar为正确的值
 // 通过判断 当前视口中是哪个标题的内容 去给activeAnchar赋值
 function setSelect(dom:HTMLElement) {

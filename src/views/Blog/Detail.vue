@@ -47,6 +47,7 @@ getBlog(route.params.id + '').then((res) => {
     })
     return
   }
+  console.log('res', res);
   document.title = res.data.title
   data.value = res.data
   isLoading.value = false

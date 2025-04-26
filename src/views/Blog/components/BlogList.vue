@@ -112,7 +112,8 @@ function handlePageChange(newPage: number) {
         limit: routeInfo.value.limit,
       },
     })
-  } else {
+  }
+  else {
     router.push({
       name: 'BlogCate',
       params: {

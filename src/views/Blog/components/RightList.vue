@@ -1,64 +1,78 @@
 <template>
   <ul class="right-list-container">
-    <li v-for="(item, index) in list" :key="index">
-      <span :class="{ active: item!.isSelect }" :style="{ height: `40px`, lineHeight: `40px`, minHeight: `40px` }"
-      @click="handleClick(item)">
-      {{item.name }}
-    </span>
-    <span     class="aside"
-    :class="{ active: item!.isSelect }"
-    v-if="item.aside"
-
-    @click="handleClick(item)"
-    style=""
+    <li
+      v-for="(item, index) in list"
+      :key="index"
     >
-      {{ item.aside }}
-    </span>
-      <RightList :list="item.children"
-        @select="handleClick(item)"
-      ></RightList>
+      <span
+        :class="{ active: item!.isSelect }"
+        :style="{ height: `40px`, lineHeight: `40px`, minHeight: `40px` }"
+        @click="handleClick(item)"
+      >
+        {{ item.name }}
+      </span>
+      <span
+        class="aside"
+        :class="{ active: item!.isSelect }"
+        v-if="item.aside"
+        @click="handleClick(item)"
+        style=""
+      >
+        {{ item.aside }}
+      </span>
+      <RightList :list="item.children"></RightList>
     </li>
   </ul>
 </template>
 
 <script setup lang="ts">
-import type { Contents } from "@/types/contents";
+import type { Contents } from '@/types/contents'
+import {useRouter } from 'vue-router'
+const router = useRouter()
+
 interface Props {
   list: Contents[] | undefined
 }
-const { } = defineProps<Props>()
+const {} = defineProps<Props>()
 
-const emit = defineEmits<{
-  select: [item: Contents]
-}>()
 function handleClick(item: Contents) {
-  if(!item.isSelect) {
-    emit("select", item)
+  // console.log(item)
+  if (!item.isSelect) {
+    if(item.anchor){
+      location.hash = item.anchor!
+    }else{
+      router.push({
+      name: 'BlogCate',
+      params: {
+        id: item.id,
+      }
+    })
+    }
+
   }
 }
 </script>
 
 <style scoped>
-
 .right-list-container .right-list-container {
   margin-left: 1em;
 }
-.active{
+.active {
   color: var(--secondary-color-dark);
 }
 
-.aside{
+.aside {
   margin-left: 2em;
   font-size: 0.8em;
 }
-.aside:hover{
+.aside:hover {
   cursor: pointer;
   color: var(--secondary-color-dark);
 }
-li:hover{
+li:hover {
   cursor: pointer;
 }
-span:hover{
+span:hover {
   color: var(--secondary-color-dark);
 }
 </style>

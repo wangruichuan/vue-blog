@@ -15,11 +15,9 @@ export interface ArticleCategory {
 export interface ArticleTocItem {
   name: string
   anchor: string
-  children?: ArticleTocItem[],
+  children?: ArticleTocItem[]
   isSelect?: boolean
 }
-
-
 
 export interface Article {
   id: string
@@ -28,35 +26,34 @@ export interface Article {
   description: string
   scanNumber: number
   commentNumber: number
-  createDate: string
+  createTime: string
   toc: ArticleTocItem[]
   thumb: string
   htmlContent: string
 }
 
-
 // 定义单个数据项的类型
 export interface Comment {
-  id: string;
-  nickname: string;
-  content: string;
-  createDate: string;
-  avatar: string;
+  id: string
+  nickname: string
+  content: string
+  createDate: string
+  avatar: string
 }
 
 // 定义包含所有数据的对象的类型
 export interface CommentData {
-  total: number;
-  rows: Comment[];
+  total: number
+  rows: Comment[]
 }
 
 // 评论后返回的新评论的信息
 export interface NewCommentResp {
-  id: string;
-  nickname: string;
-  content: string;
-  createDate: string;
-  avatar: string;
+  id: string
+  nickname: string
+  content: string
+  createDate: string
+  avatar: string
 }
 
 export interface ResponseData<T> {
@@ -67,15 +64,22 @@ export interface ResponseData<T> {
 
 // 单个评论
 export type Message = {
-  id: string;
-  nickname: string;
-  content: string;
-  createDate: string;
-  avatar: string;
-};
+  id: string
+  nickname: string
+  content: string
+  createDate: string
+  avatar: string
+}
 
 // 定义包含所有数据的对象的类型
 export type DataObject<T> = {
-  total: number;
-  rows: T[];
-};
+  total: number
+  rows: T[]
+}
+
+//project
+export type Project = {
+  title: string
+  desciption: string
+  link: string
+}

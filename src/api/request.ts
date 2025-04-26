@@ -1,7 +1,8 @@
-import axios from 'axios';
-import showMessage from '@/utils/showMessage';
+import axios from 'axios'
+import showMessage from '@/utils/showMessage'
 
 const ins = axios.create({
+  baseURL: 'http://localhost:3000/',
   timeout: 3000,
 })
 ins.interceptors.response.use(

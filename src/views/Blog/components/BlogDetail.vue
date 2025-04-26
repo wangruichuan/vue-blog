@@ -2,7 +2,7 @@
   <div class="blog-detail-container" v-if="blog">
     <h1>{{ blog.title }}</h1>
     <div class="aside">
-      <span>日期：{{ blog.createDate }}</span>
+      <span>日期：{{ blog.createTime }}</span>
       <span>浏览：{{ blog.scanNumber }}</span>
       <a href="#data-form-container">评论：{{ blog.commentNumber }}</a>
       <RouterLink
