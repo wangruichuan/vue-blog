@@ -2,7 +2,7 @@ import axios from 'axios'
 import showMessage from '@/utils/showMessage'
 
 const ins = axios.create({
-  baseURL: 'http://localhost:3000/',
+  baseURL: 'http://101.42.50.179:3001/',
   timeout: 3000,
 })
 ins.interceptors.response.use(

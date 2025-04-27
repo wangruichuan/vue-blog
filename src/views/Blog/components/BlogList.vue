@@ -67,10 +67,12 @@
       @page-change="handlePageChange"
       v-if="data.total"
     />
+    <Empty v-if="!data.total"></Empty>
   </div>
 </template>
 
 <script setup lang="ts">
+import Empty from '@/components/Empty/index.vue'
 import Pager from '@/components/Pager/index.vue'
 import { useFetch } from '@/composables/useFetch'
 import { getBlogs } from '@/api/blog'

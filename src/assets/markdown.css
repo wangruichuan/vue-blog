@@ -84,9 +84,10 @@
 }
 
 .mini-md-table {
-  width: 50%;
+  width: 100%;
   border-collapse: collapse;
   margin: 20px 0;
+  border: 1px solid var(--border-color);
 }
 
 .mini-md-th,
@@ -100,9 +101,7 @@
   background-color: var(--border-color);
 }
 
-.mini-md-tr:hover {
-  background-color: var(--border-color);
-}
+
 
 .mini-md-ul,
 .mini-md-ol {
